@@ -4,4 +4,4 @@ Student Number: 041126214
 Astronomy Picture of the Day 
 Using NASA API
 
-Lo-Fi Wireframes: https://www.figma.com/design/3ypU9vvZS9a7TXX968YPXN/MTM6302-Wireframes?t=04b6b2F5UgncJPY6-1
+Lo-Fi Wireframes: https://www.figma.com/design/di1DDwy8teNCfG5RPE7Nnw/MTM6302-APOD-Wireframes?node-id=1034212-1809&t=NahD7iymFa3Iva8A-1
