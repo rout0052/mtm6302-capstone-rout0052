@@ -1,0 +1,32 @@
+:root {
+    --headerFooterColor: #1C2023; 
+    --galleryColor: #2B3035;
+}
+
+header, footer {
+    background-color: var(--headerFooterColor);
+}
+
+nav a.navbar-brand {
+    font-family: "kallisto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+#gallery {
+    background-color: var(--galleryColor);
+}
+
+#hero {
+    background-image: url("/images/hero-sky.jpg");
+}
+
+p a:visited {
+    color:white;
+}
