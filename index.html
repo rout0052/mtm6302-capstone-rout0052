@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronomy Picture Of The Day</title>
+
+    <!-- Favicons that change depending on the user's set colour theme! -->
+    <link href="/images/favicon-light-mode.ico" rel="icon" media="(prefers-color-scheme: light)">
+    <link href="/images/favicon-dark-mode.ico" rel="icon" media="(prefers-color-scheme: dark)">
+
+    <!-- Adds Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Adds Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Adds Adobe Fonts (Kallisto) -->
+    <link rel="stylesheet" href="https://use.typekit.net/diz8lxw.css">
+
+    <!-- Adds CSS Document -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" id="top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Astronomy Picture Of The Day</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid py-5" id="hero">
+        <div class="container py-5">
+            <h1>Welcome To Astronomy Picture Of The Day!</h1>
+            <p class="h5 py-4">This website uses NASA's Astronomy Picture Of The Day API, which gives an associated picture
+                from NASA's archive for each day from today back until June 16th, 1995. Feel free to save your favourites
+                for later!
+            </p>
+        </div>
+    </div>
+    
+
+    <div class="container py-5" >
+        <h2>Find the Picture of the Day On....</h2>
+    </div>
+
+
+    <div class="container-fluid py-5" id="gallery">
+        <div class="container">
+            <h2><i class="bi bi-stars"></i> Favourites Gallery <i class="bi bi-stars"></i></h2>
+
+            <div class="card shadow-sm">
+                <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225"
+                    preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                        dy=".3em">Thumbnail</text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
+                        content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group"> <button type="button"
+                                class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </div> <small class="text-body-secondary">9 mins</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <p><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">Astronomy Picture of the Day (APOD)</a> is originated, written, coordinated, and edited since 1995 by Robert Nemiroff and Jerry Bonnell.</p>
+
+        <p>
+            All the images on the APOD page are credited to the owner or institution where they originated. Some of the images are copyrighted and to use these pictures publicly or commercially one must write to the owners for permission.  For the copyrighted images, the copyright owner is identified in the APOD credit line (please see the caption under the image), along with a hyperlink to the owner's location. NASA images are in the public domain, <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank">official guidelines for their use can be found here.</a> For images credited to other owners/institutions, please contact them directly for copyright and permissions questions.
+        </p>
+
+    </div>
+
+    <footer class="container-fluid py-5">
+        <div class="container">
+            <p>APOD API by Robert Nemiroff, Jerry Bonnell, and NASA</p>
+            <p class="h3 py-2">This site was created by Taro Routly, for MTM6302</p>
+            <img src="/images/tarobytez-logo-white.svg" height="75px" width="auto">
+        </div>
+    </footer>
+</body>
+
+</html>
