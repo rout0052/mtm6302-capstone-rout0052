@@ -1,6 +1,7 @@
 :root {
     --headerFooterColor: #1C2023; 
     --galleryColor: #2B3035;
+    --primaryBlue: #0D6EFD;
 }
 
 header, footer {
@@ -11,7 +12,7 @@ nav a.navbar-brand {
     font-family: "kallisto", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 2rem;
+    /* font-size: 2rem; */
 }
 
 h2 {
@@ -24,7 +25,25 @@ h2 {
 }
 
 #hero {
-    background-image: url("images/hero-sky.jpg");
+    background-image: url('/images/hero-sky.jpg');
+}
+
+a#jump-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  max-width: 60px;
+  width: 100%;
+  font-size: 2.5rem;
+  padding: 2px;
+  text-align: center;
+  color: white;
+  background-color: var(--primaryBlue);
+}
+
+#displayImg {
+    width: 100%;
+    height: auto;
 }
 
 p a:visited {

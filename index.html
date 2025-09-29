@@ -7,8 +7,8 @@
     <title>Astronomy Picture Of The Day</title>
 
     <!-- Favicons that change depending on the user's set colour theme! -->
-    <link href="/images/favicon-light-mode.ico" rel="icon" media="(prefers-color-scheme: light)">
-    <link href="/images/favicon-dark-mode.ico" rel="icon" media="(prefers-color-scheme: dark)">
+    <link href="images/favicon-light-mode.ico" rel="icon" media="(prefers-color-scheme: light)">
+    <link href="images/favicon-dark-mode.ico" rel="icon" media="(prefers-color-scheme: dark)">
 
     <!-- Adds Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,7 +28,7 @@
     <header>
         <nav class="navbar" id="top">
             <div class="container">
-                <a class="navbar-brand" href="#">Astronomy Picture Of The Day</a>
+                <a class="navbar-brand shadow-sm" href="#">Astronomy Picture Of The Day</a>
             </div>
         </nav>
     </header>
@@ -40,18 +40,35 @@
                 from NASA's archive for each day from today back until June 16th, 1995. Feel free to save your favourites
                 for later!
             </p>
+            <a href="#gallery" class="btn btn-primary btn-lg rounded-pill">Jump To Favourites</a>
         </div>
     </div>
     
 
     <div class="container py-5" >
-        <h2>Find the Picture of the Day On....</h2>
+        <h2 class="py-3">Find the Picture of the Day On....</h2>
+        
+    </div>
+
+    <div class="container py-5">
+        <div>
+            <img src="images/hero-sky.jpg" alt="" id="displayImg">
+            <div id="imgActions">
+                <button class="btn btn-lg"><i class="bi bi-download"></i></button>
+                <button class="btn btn-lg"><i class="bi bi-star"></i></button>
+            </div>
+        </div>
+        <h3 class="py-2">Image Title</h3>
+        <p class="h5 py-2"><strong>Date:</strong></p>
+        <p class="h5 py-2"><strong>Image Credit & Copyright</strong></p>
+        <p class="h5 py-2"><strong>Explanation:</strong></p>
     </div>
 
 
     <div class="container-fluid py-5" id="gallery">
         <div class="container">
-            <h2><i class="bi bi-stars"></i> Favourites Gallery <i class="bi bi-stars"></i></h2>
+            <h2 class="py-3"><i class="bi bi-stars"></i> Favourites Gallery <i class="bi bi-stars"></i></h2>
+
 
             <div class="card shadow-sm">
                 <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225"
@@ -67,8 +84,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group"> <button type="button"
                                 class="btn btn-sm btn-outline-secondary">View</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div> <small class="text-body-secondary">9 mins</small>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Unfavourite</button>
+                        </div> <small class="text-body-secondary">09/29/2025</small>
                     </div>
                 </div>
             </div>
@@ -78,11 +95,15 @@
     <div class="container py-5">
         <p><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">Astronomy Picture of the Day (APOD)</a> is originated, written, coordinated, and edited since 1995 by Robert Nemiroff and Jerry Bonnell.</p>
 
-        <p>
-            All the images on the APOD page are credited to the owner or institution where they originated. Some of the images are copyrighted and to use these pictures publicly or commercially one must write to the owners for permission.  For the copyrighted images, the copyright owner is identified in the APOD credit line (please see the caption under the image), along with a hyperlink to the owner's location. NASA images are in the public domain, <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank">official guidelines for their use can be found here.</a> For images credited to other owners/institutions, please contact them directly for copyright and permissions questions.
-        </p>
+        <p>All the images on the APOD page are credited to the owner or institution where they originated. Some of the images are copyrighted and to use these pictures publicly or commercially one must write to the owners for permission.  For the copyrighted images, the copyright owner is identified in the APOD credit line (please see the caption under the image), along with a hyperlink to the owner's location. NASA images are in the public domain, <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank">official guidelines for their use can be found here.</a> For images credited to other owners/institutions, please contact them directly for copyright and permissions questions.</p>
 
     </div>
+
+
+    <a href="#top" id="jump-top">
+        <!-- Bootstrap icon - chevron up symbol using the <i> tag, commonly used for icons.  -->
+        <i class="bi bi-chevron-up"></i>
+    </a>
 
     <footer class="container-fluid py-5">
         <div class="container">
