@@ -12,13 +12,19 @@ nav a.navbar-brand {
     font-family: "kallisto", sans-serif;
     font-weight: 300;
     font-style: normal;
-    /* font-size: 2rem; */
+    font-size: 1rem;
 }
+
 
 h2 {
     text-align: center;
 }
 
+form {
+    font-size:2rem;
+    gap: 10px;
+    justify-content: center;
+}
 
 #gallery {
     background-color: var(--galleryColor);
@@ -26,6 +32,11 @@ h2 {
 
 #hero {
     background-image: url('/images/hero-sky.jpg');
+}
+
+div#imgActions button {
+    font-size:3rem;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 a#jump-top {
@@ -46,6 +57,49 @@ a#jump-top {
     height: auto;
 }
 
+div#favourites-container {
+    display: grid;
+    gap: 20px;
+}
+
+
+div.card img.card-img-top {
+    height: 225px;   
+    width: auto;
+    object-fit: cover;
+}
+
+p a:link {
+    color:white;
+}
+
+
 p a:visited {
     color:white;
+}
+
+@media screen and (min-width: 576px) {
+    div.card img.card-img-top {
+        height:400px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    div#favourites-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    div.card img.card-img-top {
+        height:400px;
+    }
+
+    .displayImgContainer {
+        position: relative;
+    }
+
+    div#imgActions {
+        position: absolute;
+        right: 2%;
+        top:0%;
+    }
 }
