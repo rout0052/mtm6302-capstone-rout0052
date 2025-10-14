@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!-- Sets the language and Bootstrap theme -->
 <html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Name of Website -->
     <title>Astronomy Picture Of The Day</title>
 
     <!-- Favicons that change depending on the user's set colour theme! -->
@@ -25,72 +27,116 @@
 </head>
 
 <body>
+    <!-- Header & Navbar -->
     <header>
+        <!-- ID for jump to top button link -->
         <nav class="navbar" id="top">
             <div class="container">
-                <a class="navbar-brand shadow-sm" href="#">
+                <!-- Adds website brand name with decorative shadow -->
+                <a class="navbar-brand shadow-sm" href="index.html">
                     Astronomy Picture Of The Day</a>
             </div>
         </nav>
     </header>
 
+    <!-- Hero container-fluid to have background go across entire page. Padding on the y axis in size 5. The text is centered by default, but on a device larger than sm it is left aligned -->
     <div class="container-fluid py-5 text-center text-sm-start" id="hero">
+        <!-- Inside of the fluid container, adds another container with even more vertical padding to really space out the hero (pun intended) -->
         <div class="container py-5">
             <h1>Welcome To Astronomy Picture Of The Day!</h1>
+
+            <!-- Uses Bootstrap class styling to add move padding, and style it like an h5 -->
             <p class="h5 py-4">This website uses NASA's Astronomy Picture Of The Day API, which gives an associated
-                picture
-                from NASA's archive for each day from today back until June 16th, 1995. Feel free to save your
-                favourites
-                for later!
+                picture from NASA's archive for each day from today back until June 16th, 1995. Feel free to save your
+                favourites for later!
             </p>
+            <!-- This link is styled like a button using Bootstrap, and jumps to the section with the id gallery -->
             <a href="#gallery" class="btn btn-primary btn-lg rounded-pill">Jump To Favourites</a>
         </div>
     </div>
 
+    <!-- Container div with padding on the y axis in size 5  -->
     <div class="container py-5">
+        <!-- Section heading with padding on the y axis in size 3 -->
         <h2 class="py-3">Find the Picture of the Day On....</h2>
+        <!-- form with a class of d-flex to internally display using flex -->
         <form action="" class="d-flex">
+            <!-- Label for associated 'date' input -->
             <label for="date">Date:</label>
-            <input type="date" id="date" min="1995-06-20"> 
-            
+            <!-- Input of type date, with the associated 'date' id. The minimum date value is June 20th, 1995, the earliest date to access the APOD API. The maximum date, and the default value is the current date, which is calculated and added as attributes in script.js -->
+            <input type="date" id="date" min="1995-06-20">
+
+            <!-- Button for submitting the form, styled with Bootstrap -->
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </form>
     </div>
 
+    <!-- Container that displays -->
     <div class="container py-5 text-center text-sm-start">
-        <div class="displayImgContainer text-start">
-            <img src="images/space-pics/DarkVeil.jpg" alt="See Explanation.  Clicking on the picture will download the highest resolution version available." id="displayImg">
-            <div id="imgActions">
-                <button class="btn"><i class="bi bi-download"></i></button>
-                <button class="btn"><i class="bi bi-star"></i></button>
-            </div>
+        <!-- This text is currently visually-hidden, and when incorporating JS will override after the user submits a date -->
+        <div class="visually-hidden">
+            <p class="h5">Nothing to see here yet! Please submit a date to see the Picture of the Day!</p>
         </div>
-        <h3 class="py-2" id="display-title">A Dark Veil in Ophiuchus</h3>
-        <p class="h5 py-2"><strong>Date: </strong><span id="display-date">08 / 29 / 2025</span></p>
-        <p class="h5 py-2"><strong>Image Credit & Copyright: </strong><span id="display-credit"><a
-                    href="https://app.astrobin.com/u/kates.universe">Katelyn Beecroft</a></span></p>
-        <p class="h5 py-2"><strong>Explanation: </strong><span id="display-explanation">The diffuse hydrogen-alpha glow
-                of emission region Sh2-27 fills this cosmic scene. The field of view spans nearly 3 degrees across the
-                nebula-rich constellation Ophiuchus toward the central Milky Way. A Dark Veil of wispy interstellar dust
-                clouds draped across the foreground is chiefly identified as LDN 234 and LDN 204 from the 1962 Catalog
-                of Dark Nebulae by American astronomer Beverly Lynds. Sh2-27 itself is the large but faint HII region
-                surrounding runaway O-type star Zeta Ophiuchi. Along with the Zeta Oph HII region, LDN 234 and LDN 204
-                are likely 500 or so light-years away. At that distance, this telescopic frame would be about 25
-                light-years wide.</span></p>
+
+        <!-- Class to display text left aligned, and a class for targeting in CSS to put the buttons over the img -->
+        <div>
+            <div class="displayImgContainer text-start">
+                <!-- Adds the image called on by the form. This will be dynamically added in JS. -->
+                <img src="images/space-pics/DarkVeil.jpg"
+                    alt="See Explanation.  Clicking on the picture will download the highest resolution version available."
+                    id="displayImg">
+                
+                <!-- This div is overlayed on the image on desktop, using CSS -->
+                <div id="imgActions">
+                    <!-- Adds buttons with icons from Bootstrap to download and favourite an image -->
+                    <button class="btn" name="download"><i class="bi bi-download"></i></button>
+                    <button class="btn" name="favourite"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+            <!-- Adds information about the image. Spans are used where information will be dynamically put in JS in the final version. Strong is used to define the titles for each for semantics and for bolding -->
+            <h3 class="py-2">A Dark Veil in Ophiuchus</h3>
+            <p class="h5 py-2"><strong>Date: </strong><span>08 / 29 / 2025</span></p>
+            <p class="h5 py-2"><strong>Image Credit & Copyright: </strong><span><a
+                        href="https://app.astrobin.com/u/kates.universe">Katelyn Beecroft</a></span></p>
+            <p class="h5 py-2"><strong>Explanation: </strong><span>The diffuse hydrogen-alpha
+                    glow of emission region Sh2-27 fills this cosmic scene. The field of view spans nearly 3 degrees across
+                    the nebula-rich constellation Ophiuchus toward the central Milky Way. A Dark Veil of wispy interstellar
+                    dust clouds draped across the foreground is chiefly identified as LDN 234 and LDN 204 from the 1962
+                    Catalog of Dark Nebulae by American astronomer Beverly Lynds. Sh2-27 itself is the large but faint HII
+                    region surrounding runaway O-type star Zeta Ophiuchi. Along with the Zeta Oph HII region, LDN 234 and LDN
+                    204 are likely 500 or so light-years away. At that distance, this telescopic frame would be about 25
+                    light-years wide.</span></p>
+        </div>
     </div>
 
+    <!-- Container-fluid div to have background colour go across entire page. ID to allow for button to jump here from top of page -->
     <div class="container-fluid py-5" id="gallery">
         <div class="container">
+            <!-- Title for Favourites Gallery, with star icons added on either side for flair. -->
             <h2 class="py-3"><i class="bi bi-stars"></i> Favourites Gallery <i class="bi bi-stars"></i></h2>
 
+            <!-- This text is currently visually-hidden, and when incorporating JS will override when there is a favourite added   -->
+            <div class="visually-hidden">
+                <p class="h5">Nothing to see here yet! Add some favourites to see some of the best Astronomy Pictures of
+                    the Day</p>
+            </div>
+
+            <!-- This container will be where the favourites are added dynamically. For now, it includes filler data. -->
             <div id="favourites-container">
+                <!-- This div creates the card for each of the favourites. The other divs in the #favourites-container div follow the same structure, so comments will explain it here. The structure of the card came from this example on the Bootstrap page, adjusted for the needs of the project: https://getbootstrap.com/docs/4.0/examples/album/ -->
+                <!-- Div with Bootstrap classes card and shadow-sm -->
                 <div class="card shadow-sm">
+                    <!-- Adds image to the top area of the card with Bootstrap class. -->
                     <img src="images/space-pics/GalaxiesStarsAndDust.jpg"
                         alt="See Explanation.  Clicking on the picture will download the highest resolution version available."
                         class="card-img-top">
+
+                    <!-- The body of the card, displayed in flex as a column -->
                     <div class="card-body d-flex flex-column">
+                        <!-- Title of the favourite -->
                         <h5 class="card-title">Galaxies, Stars, and Dust</h5>
-                        <p class="card-text"> This well-composed telescopic field of view covers over a Full Moon on the
+                        <!-- Description of the favourite -->
+                        <p class="card-text">This well-composed telescopic field of view covers over a Full Moon on the
                             sky toward the high-flying constellation Pegasus. Of course the brighter stars show
                             diffraction spikes, the commonly seen effect of internal supports in reflecting telescopes,
                             and lie well within our own Milky Way galaxy. The faint but pervasive clouds of interstellar
@@ -101,11 +147,15 @@
                             striking spiral galaxy NGC 7497. It's some 60 million light-years away, though. Seen almost
                             edge-on near the center of the field, NGC 7497's own spiral arms and dust lanes echo the
                             colors of stars and dust in our own Milky Way. </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group"> <button type="button"
-                                    class="btn btn-sm btn-outline-secondary">View</button>
+                        <!-- Bottom row of the card, displayed in flex, with the space between the items put between..  -->
+                        <div class="d-flex justify-content-between">
+                            <!-- Group of buttons -->
+                            <div class="btn-group"> 
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Unfavourite</button>
-                            </div> <small class="text-body-secondary">09/28/2025</small>
+                            </div> 
+                            <!-- Adds small secondary body text with the date of origin -->
+                            <small class="text-body-secondary">09/28/2025</small>
                         </div>
                     </div>
                 </div>
@@ -196,7 +246,9 @@
         </div>
     </div>
 
+    <!-- Container with information and credit for the APOD -->
     <div class="container py-5">
+        <!-- Paragraphs with links inline. These links open in a new tab. -->
         <p><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">Astronomy Picture of the Day (APOD)</a> is
             originated, written, coordinated, and edited since 1995 by Robert Nemiroff and Jerry Bonnell.</p>
 
@@ -211,19 +263,23 @@
     </div>
 
 
-    <a href="#top" id="jump-top">
+    <!-- Jump to Top button -->
+    <a href="#top" id="jump-top" aria-label="Jump to top button">
         <!-- Bootstrap icon - chevron up symbol using the <i> tag, commonly used for icons.  -->
         <i class="bi bi-chevron-up"></i>
     </a>
 
+    <!-- Footer with container fluid class to allow for background colour to spread across entire screen. Vertical padding in size 5 -->
     <footer class="container-fluid py-5">
         <div class="container">
+            <!-- Credit information, and personal logo -->
             <p>APOD API by Robert Nemiroff, Jerry Bonnell, and NASA</p>
             <p class="h3 py-2">This site was created by Taro Routly, for MTM6302</p>
             <img src="images/tarobytez-logo-white.svg" height="75px" width="auto">
         </div>
     </footer>
 
+    <!-- Link to personal Javascript file -->
     <script src="script.js"></script>
 </body>
 
