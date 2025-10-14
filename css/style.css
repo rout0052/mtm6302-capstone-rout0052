@@ -37,7 +37,7 @@ form {
 
 /* Adds background image to the hero section */
 #hero {
-    background-image: url('../images/hero-sky.jpg');
+    background-image: url("../images/hero-sky.jpg");
 }
 
 /* Increases the font-size and adds a text shadow to the buttons to download and favourite the displayed image */
