@@ -1,12 +1,13 @@
 /* Defines variables for colours */
 :root {
-    --headerFooterColor: #1C2023; 
+    --headerFooterColor: #1C2023;
     --galleryColor: #2B3035;
     --primaryBlue: #0D6EFD;
 }
 
 /* Adds background colour change to the header and footer */
-header, footer {
+header,
+footer {
     background-color: var(--headerFooterColor);
 }
 
@@ -25,7 +26,7 @@ h2 {
 
 /* Increases the font size of the form, and adds flex properties gap and justify content to space out the items and center the form items */
 form {
-    font-size:2rem;
+    font-size: 2rem;
     gap: 10px;
     justify-content: center;
 }
@@ -42,22 +43,22 @@ form {
 
 /* Increases the font-size and adds a text shadow to the buttons to download and favourite the displayed image */
 div#imgActions button {
-    font-size:3rem;
+    font-size: 3rem;
     text-shadow: 2px 2px 4px #000000;
 }
 
 /* Styles the jump to top button. The position is fixed in the bottom right corner, with set width, font-size, text alignment, text color and background color */
 a#jump-top {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  max-width: 60px;
-  width: 100%;
-  font-size: 2.5rem;
-  padding: 2px;
-  text-align: center;
-  color: white;
-  background-color: var(--primaryBlue);
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    max-width: 60px;
+    width: 100%;
+    font-size: 2.5rem;
+    padding: 2px;
+    text-align: center;
+    color: white;
+    background-color: var(--primaryBlue);
 }
 
 /* Displays the image pulled at 100% width and height of auto */
@@ -74,35 +75,36 @@ div#favourites-container {
 
 /* Adds a set height to the images on the favourite cards, and fits them to cover the allotted area to prevent image distortion */
 div.card img.card-img-top {
-    height: 225px;   
+    height: 225px;
     width: auto;
     object-fit: cover;
 }
 
 /* Changes link state when inline in paragraph to white */
 p a:link {
-    color:white;
+    color: white;
 }
 
 /* Changes visited link state when inline in paragraph to white */
 p a:visited {
-    color:white;
+    color: white;
 }
 
 /* This targets the card-text in cards in the favourites-container. I had to research how to do multiple line text truncation in CSS, and found this link: https://www.geeksforgeeks.org/css/set-the-limit-of-text-length-to-n-lines-using-css/ . After using this information, I applied it here. overflow: hidden hides content that goes over the size of the container box. display: -webkit-box allows you to use different vendor specific styles to your text. -webkit-line-clamp defines how many lines you allow for the text. -webkit-box-orient: vertical has the content in the -webkit-box flow vertically. Then, Visual Studio Code prompted me to add the line-clamp property on its own, as it is also accepted in some browsers. On browsers without functionality for either of these styles, the website is still functional, the cards just are a tiny bit less cleanly styled.  */
 div#favourites-container p.card-text {
-  overflow: hidden;
-  display: -webkit-box;
-  line-clamp: 8;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 8;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
 }
 
 /* FOR SCREEN SIZES SM AND UP */
 @media screen and (min-width: 576px) {
+
     /* Increases the height for the favourites cards images */
     div.card img.card-img-top {
-        height:400px;
+        height: 400px;
     }
 
     /* Changes the allowed number of lines to 5 */
@@ -114,6 +116,7 @@ div#favourites-container p.card-text {
 
 /* FOR SCREEN SIZES MD AND UP */
 @media screen and (min-width: 768px) {
+
     /* Changes the favourites-container to a grid of 2 equal fractions per row */
     div#favourites-container {
         grid-template-columns: 1fr 1fr;
@@ -128,6 +131,6 @@ div#favourites-container p.card-text {
     div#imgActions {
         position: absolute;
         right: 2%;
-        top:0%;
+        top: 0%;
     }
 }
