@@ -69,49 +69,37 @@
             <input type="date" id="date" min="1995-06-20">
 
             <!-- Button for submitting the form, styled with Bootstrap -->
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg" id="dateSubmit">Submit</button>
         </form>
     </div>
 
     <!-- Container that displays -->
-    <div class="container py-5 text-center text-sm-start">
+    <div class="container py-5 text-center text-sm-start displayContainer">
         <!-- This text is currently visually-hidden, and when incorporating JS will override after the user submits a date -->
-        <div class="visually-hidden">
-            <p class="h5">Nothing to see here yet! Please submit a date to see the Picture of the Day!</p>
+        <div>
+            <p class="h5 text-center py-5">Nothing to see here yet! Please submit a date to see the Picture of the Day!</p>
         </div>
 
         <!-- Class to display text left aligned, and a class for targeting in CSS to put the buttons over the img -->
-        <div>
+        <div class="visually-hidden">
             <div class="displayImgContainer text-start">
                 <!-- Adds the image called on by the form. This will be dynamically added in JS. -->
-                <img src="images/space-pics/DarkVeil.jpg"
-                    alt="See Explanation.  Clicking on the picture will download the highest resolution version available."
+                <img src=""
+                    alt="See Explanation."
                     id="displayImg">
 
                 <!-- This div is overlayed on the image on desktop, using CSS -->
                 <div id="imgActions">
                     <!-- Adds buttons with icons from Bootstrap to download and favourite an image -->
-                    <button class="btn" name="download"><i class="bi bi-download"></i></button>
-                    <button class="btn" name="favourite"><i class="bi bi-star"></i></button>
+                    <button class="btn" name="download" id="download"><i class="bi bi-download" id="download"></i></button>
+                    <button class="btn" name="favourite" id="favourite"><i class="bi bi-star" id="favourite"></i></button>
                 </div>
             </div>
             <!-- Adds information about the image. Spans are used where information will be dynamically put in JS in the final version. Strong is used to define the titles for each for semantics and for bolding -->
-            <h3 class="py-2">A Dark Veil in Ophiuchus</h3>
-            <p class="h5 py-2"><strong>Date: </strong><span>08 / 29 / 2025</span></p>
-            <p class="h5 py-2"><strong>Image Credit & Copyright: </strong><span><a
-                        href="https://app.astrobin.com/u/kates.universe">Katelyn Beecroft</a></span></p>
-            <p class="h5 py-2"><strong>Explanation: </strong><span>The diffuse hydrogen-alpha
-                    glow of emission region Sh2-27 fills this cosmic scene. The field of view spans nearly 3 degrees
-                    across
-                    the nebula-rich constellation Ophiuchus toward the central Milky Way. A Dark Veil of wispy
-                    interstellar
-                    dust clouds draped across the foreground is chiefly identified as LDN 234 and LDN 204 from the 1962
-                    Catalog of Dark Nebulae by American astronomer Beverly Lynds. Sh2-27 itself is the large but faint
-                    HII
-                    region surrounding runaway O-type star Zeta Ophiuchi. Along with the Zeta Oph HII region, LDN 234
-                    and LDN
-                    204 are likely 500 or so light-years away. At that distance, this telescopic frame would be about 25
-                    light-years wide.</span></p>
+            <h3 class="py-2" id="imgTitle"></h3>
+            <p class="h5 py-2"><strong>Date: </strong><span id="imgDate"></span></p>
+            <p class="h5 py-2"><strong>Image Credit & Copyright: </strong><span id="imgCredit"></span></p>
+            <p class="h5 py-2"><strong>Explanation: </strong><span  id="imgExplanation"></span></p>
         </div>
     </div>
 
@@ -122,13 +110,13 @@
             <h2 class="py-3"><i class="bi bi-stars"></i> Favourites Gallery <i class="bi bi-stars"></i></h2>
 
             <!-- This text is currently visually-hidden, and when incorporating JS will override when there is a favourite added   -->
-            <div class="visually-hidden">
-                <p class="h5">Nothing to see here yet! Add some favourites to see some of the best Astronomy Pictures of
-                    the Day</p>
+            <div>
+                <p class="h5 text-center py-5">Nothing to see here yet! Add some favourites to see some of the best Astronomy Pictures of
+                    the Day!</p>
             </div>
 
             <!-- This container will be where the favourites are added dynamically. For now, it includes filler data. -->
-            <div id="favourites-container">
+            <div id="favourites-container" class="visually-hidden">
                 <!-- This div creates the card for each of the favourites. The other divs in the #favourites-container div follow the same structure, so comments will explain it here. The structure of the card came from this example on the Bootstrap page, adjusted for the needs of the project: https://getbootstrap.com/docs/4.0/examples/album/ -->
                 <!-- Div with Bootstrap classes card and shadow-sm -->
                 <div class="card shadow-sm">
