@@ -43,7 +43,7 @@ form {
 
 /* Increases the font-size and adds a text shadow to the buttons to download and favourite the displayed image */
 div#imgActions button {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-shadow: 2px 2px 4px #000000;
 }
 
@@ -64,7 +64,7 @@ a#jump-top {
 /* Displays the image pulled at 100% width and height of auto */
 #displayImg {
     width: 100%;
-    height: auto;
+    height: auto;    
 }
 
 /* Displayes the favourites-container as a grid with a 20px grid. I used CSS to set in a grid instead of Bootstrap, since it is far easier to use the grid system in CSS than have to worry about using rows and columns when adding the cards dynamically later */
@@ -122,15 +122,12 @@ div#favourites-container p.card-text {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* Changes the container holding the image and the buttons to relative to place the download and favourites button over the image */
-    .displayImgContainer {
-        position: relative;
+    div.titleBar {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items:center;
     }
 
-    /* Positions the buttons over the image in the top right corner, with a bit of right padding */
-    div#imgActions {
-        position: absolute;
-        right: 2%;
-        top: 0%;
-    }
+
 }
