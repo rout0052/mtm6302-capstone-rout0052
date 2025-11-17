@@ -19,9 +19,9 @@ $dateInput.setAttribute('value', $todayFormatted);
 
 
 // Variables storing elements of the image display section
-const $displayImgContainer = document.querySelector('div.displayImgContainer');
+const $displayAPODContainer = document.getElementById('displayAPODContainer');
 const $displayImg = document.getElementById('displayImg');
-const $favouriteSymbol = document.querySelector('div.displayImgContainer button i#favourite');
+const $favouriteSymbol = document.querySelector('div#imgActions button i#favourite');
 const $imgTitle = document.getElementById('imgTitle');
 const $imgDate = document.getElementById('imgDate');
 const $imgCredit = document.getElementById('imgCredit');
@@ -38,9 +38,11 @@ if(localStorage.getItem('favourites') !== null) {
     favourites = JSON.parse(localStorage.getItem('favourites'));
 }
 
+// favourites = JSON.parse(localStorage.getItem('favourites'));
 const $gallery = document.getElementById('favourites-container');
 
-displayFavourites();
+updateFavourites();
+
 
 // Event listener for submitting the date form
 $dateSubmit.addEventListener('click', async function (e) {
@@ -75,20 +77,74 @@ $dateSubmit.addEventListener('click', async function (e) {
     document.querySelector('div.displayContainer div:last-child').classList.remove('visually-hidden');
 
     // See if I can make it so that if its already a favourited picture, the button will be favourited.
+
+    // updateFavourites();
+    // console.log(favourites);
+    // console.log(displayedAPOD);
+    // console.log(favourites.includes(displayedAPOD));
+    // if (favourites.includes(displayedAPOD)) { 
+    //     $favouriteSymbol.className = 'bi bi-star-fill';
+    //     console.log('This is a favourite!');
+    // } else {
+    //     $favouriteSymbol.className = 'bi bi-star';
+    //     console.log('This is not a favourite!');
+    // }
+
+    // console.log(favourites.indexOf(displayedAPOD));
+
+
+    // console.log(JSON.stringify(displayedAPOD))
+    //updateFavourites();
+    // if(JSON.stringify(localStorage.getItem('favourites')).includes(JSON.stringify(displayedAPOD))) {
+    //     console.log('true!');
+    // } else {
+    //    console.log('false!'); 
+    // }
+    console.log(JSON.stringify(localStorage.getItem('favourites')));
+    console.log(JSON.stringify(displayedAPOD));
+    updateFavourites();
+
+    if(favourites.map(stringMap).includes(JSON.stringify(displayedAPOD))) {
+        console.log('true!');
+        $favouriteSymbol.className = 'bi bi-star-fill';
+    } else {
+       console.log('false!'); 
+       $favouriteSymbol.className = 'bi bi-star';
+    }
+
+    
+
 })
 
+
+function removeFavourite(index) {
+    updateFavourites();
+    favourites.splice(index, 1);
+    localStorage.setItem('favourites', JSON.stringify(favourites));
+    displayFavourites();
+}
+
+function getFavouritesIndex(apodObj) {
+    return JSON.parse(localStorage.getItem('favourites')).map(stringMap).indexOf(JSON.stringify(apodObj));
+}
+
+function stringMap(obj) {
+    return JSON.stringify(obj);
+}
+
+
 // // Use event delegation to manage the 3 actions in this part of the site. 
-$displayImgContainer.addEventListener('click', function (e) {
+$displayAPODContainer.addEventListener('click', function (e) {
     if (e.target.id === 'favourite') {
-        if (!favourites.includes(displayedAPOD)) {
+        if (!JSON.stringify(localStorage.getItem('favourites')).includes(displayedAPOD.date)) {
             $favouriteSymbol.className = 'bi bi-star-fill';
             favourites.push(displayedAPOD);
             localStorage.setItem('favourites', JSON.stringify(favourites));
-            displayFavourites();
+            updateFavourites();
         } else {
             $favouriteSymbol.className = 'bi bi-star';
-            favourites.splice(favourites.indexOf(displayedAPOD), 1);
-            localStorage.setItem('favourites', JSON.stringify(favourites));
+            removeFavourite(getFavouritesIndex(displayedAPOD));
+            updateFavourites();
         }
 
     } else if (e.target.id === 'download') {
@@ -101,12 +157,19 @@ $displayImgContainer.addEventListener('click', function (e) {
 
 })
 
+
 function updateFavourites() {
-    favourites = JSON.parse(localStorage.getItem('favourites'));
+    if(localStorage.getItem('favourites') !== null) {
+        favourites = JSON.parse(localStorage.getItem('favourites'));
+    }    
+
     displayFavourites();
 }
 
+
 function displayFavourites() {
+    favourites = JSON.parse(localStorage.getItem('favourites'));
+    // Executes if the favourites array is not empty
     if(favourites.length > 0) {
 
         const templates = [];
@@ -121,7 +184,7 @@ function displayFavourites() {
             <p class="card-text">${favourite.explanation}</p>
             <div class="d-flex justify-content-between">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-hd-url="${favourite.hdurl}">View</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Unfavourite</button>
                 </div>
                 
@@ -135,6 +198,9 @@ function displayFavourites() {
         // Makes visible after rendered all the items.
         document.querySelector('div#gallery > div.container > div').classList.add('visually-hidden');
         document.querySelector('div#gallery > div.container > div:last-child').classList.remove('visually-hidden');
+    } else {
+        document.querySelector('div#gallery > div.container > div').classList.remove('visually-hidden');
+        $gallery.innerHTML = '';
     }
 }
 
