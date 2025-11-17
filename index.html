@@ -77,29 +77,33 @@
     <div class="container py-5 text-center text-sm-start displayContainer">
         <!-- This text is currently visually-hidden, and when incorporating JS will override after the user submits a date -->
         <div>
-            <p class="h5 text-center py-5">Nothing to see here yet! Please submit a date to see the Picture of the Day!</p>
+            <p class="h5 text-center py-5">Nothing to see here yet! Please submit a date to see the Picture of the Day!
+            </p>
         </div>
 
         <!-- Class to display text left aligned, and a class for targeting in CSS to put the buttons over the img -->
-        <div class="visually-hidden">
-            <div class="displayImgContainer text-start">
-                <!-- Adds the image called on by the form. This will be dynamically added in JS. -->
-                <img src=""
-                    alt="See Explanation."
-                    id="displayImg">
+        <div class="visually-hidden" id="displayAPODContainer">
 
-                <!-- This div is overlayed on the image on desktop, using CSS -->
+            <!-- Adds the image called on by the form. This will be dynamically added in JS. -->
+            <div>
+                <img src="" alt="See Explanation." id="displayImg">
+            </div>
+            
+            <!-- Adds information about the image. Spans are used where information will be dynamically put in JS in the final version. Strong is used to define the titles for each for semantics and for bolding -->
+            <div class="titleBar">
                 <div id="imgActions">
                     <!-- Adds buttons with icons from Bootstrap to download and favourite an image -->
-                    <button class="btn" name="download" id="download"><i class="bi bi-download" id="download"></i></button>
-                    <button class="btn" name="favourite" id="favourite"><i class="bi bi-star" id="favourite"></i></button>
+                    <button class="btn" name="download" id="download"><i class="bi bi-download"
+                            id="download"></i></button>
+                    <button class="btn" name="favourite" id="favourite"><i class="bi bi-star"
+                            id="favourite"></i></button>
                 </div>
+                <h3 class="py-2" id="imgTitle"></h3>
             </div>
-            <!-- Adds information about the image. Spans are used where information will be dynamically put in JS in the final version. Strong is used to define the titles for each for semantics and for bolding -->
-            <h3 class="py-2" id="imgTitle"></h3>
+
             <p class="h5 py-2"><strong>Date: </strong><span id="imgDate"></span></p>
             <p class="h5 py-2"><strong>Image Credit & Copyright: </strong><span id="imgCredit"></span></p>
-            <p class="h5 py-2"><strong>Explanation: </strong><span  id="imgExplanation"></span></p>
+            <p class="h5 py-2"><strong>Explanation: </strong><span id="imgExplanation"></span></p>
         </div>
     </div>
 
@@ -111,7 +115,8 @@
 
             <!-- This text is currently visually-hidden, and when incorporating JS will override when there is a favourite added   -->
             <div>
-                <p class="h5 text-center py-5">Nothing to see here yet! Add some favourites to see some of the best Astronomy Pictures of
+                <p class="h5 text-center py-5">Nothing to see here yet! Add some favourites to see some of the best
+                    Astronomy Pictures of
                     the Day!</p>
             </div>
 
