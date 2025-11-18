@@ -19,6 +19,27 @@ nav a.navbar-brand {
     font-size: 1rem;
 }
 
+/* Adds the icon of the website before the site title */
+nav a.navbar-brand::before {
+    content: "";
+    /* Empty content to add the image to */
+    background-image: url('../images/white-logo.png');
+    /* Adds a background image to the empty content */
+    background-size: 30px 30px;
+    /* Adds a size for the background */
+    background-repeat: no-repeat;
+    /* Do not repeat the background image */
+    display: inline-block;
+    /* Displays ::before inline block */
+    width: 30px;
+    /* Sets height and width of the ::before content */
+    height: 30px;
+    transform: translate(0px, 10px);
+    /* Moves down the image to center it */
+    margin-right: 10px;
+    /* Adds space between the image and the site website */
+}
+
 /* Aligns all H2s in the center */
 h2 {
     text-align: center;
@@ -47,13 +68,15 @@ div#imgActions button {
     text-shadow: 2px 2px 4px #000000;
 }
 
-/* Styles the jump to top button. The position is fixed in the bottom right corner, with set width, font-size, text alignment, text color and background color */
+
+/* Styles the jump to top button. The position is fixed in the bottom right corner, with set width, font-size, text alignment, corner radius, text color and background color */
 a#jump-top {
     position: fixed;
     bottom: 40px;
     right: 40px;
     max-width: 60px;
     width: 100%;
+    border-radius: 12px;
     font-size: 2.5rem;
     padding: 2px;
     text-align: center;
@@ -64,7 +87,7 @@ a#jump-top {
 /* Displays the image pulled at 100% width and height of auto */
 #displayImg {
     width: 100%;
-    height: auto;    
+    height: auto;
 }
 
 /* Displayes the favourites-container as a grid with a 20px grid. I used CSS to set in a grid instead of Bootstrap, since it is far easier to use the grid system in CSS than have to worry about using rows and columns when adding the cards dynamically later */
@@ -75,20 +98,19 @@ div#favourites-container {
 
 /* Adds a set height to the images on the favourite cards, and fits them to cover the allotted area to prevent image distortion */
 div.card img.card-img-top {
-    height: 225px;
+    height: 300px;
     width: auto;
     object-fit: cover;
 }
 
-/* Changes link state when inline in paragraph to white */
-p a:link {
+/* Overrides link styling for inline paragraph links, and the link for downloading, to set colour as white. */
+p a:link,
+p a:visited,
+div#imgActions button a:link,
+div#imgActions button a:visited {
     color: white;
 }
 
-/* Changes visited link state when inline in paragraph to white */
-p a:visited {
-    color: white;
-}
 
 /* This targets the card-text in cards in the favourites-container. I had to research how to do multiple line text truncation in CSS, and found this link: https://www.geeksforgeeks.org/css/set-the-limit-of-text-length-to-n-lines-using-css/ . After using this information, I applied it here. overflow: hidden hides content that goes over the size of the container box. display: -webkit-box allows you to use different vendor specific styles to your text. -webkit-line-clamp defines how many lines you allow for the text. -webkit-box-orient: vertical has the content in the -webkit-box flow vertically. Then, Visual Studio Code prompted me to add the line-clamp property on its own, as it is also accepted in some browsers. On browsers without functionality for either of these styles, the website is still functional, the cards just are a tiny bit less cleanly styled.  */
 div#favourites-container p.card-text {
@@ -98,6 +120,39 @@ div#favourites-container p.card-text {
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
 }
+
+/* Styles the modal to show the image. It is fixed in the top left corner, and goes across the entire viewport. It is displayed in grid, with a row template of 90% for the image, and 10% for the download. It is hidden by default and will only show when the show class is added */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 90% 10%;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+}
+
+
+/* This is toggled on and off to show the modal */
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+/* Adjusts the image so that at maximum it takes up 95% of the height and width, the extra 5% for spacing */
+.modal img {
+    max-height: 95%;
+    max-width: 95%;
+}
+
 
 /* FOR SCREEN SIZES SM AND UP */
 @media screen and (min-width: 576px) {
@@ -122,11 +177,12 @@ div#favourites-container p.card-text {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* Displays the title of the image and the buttons in one row, and spreads the space between. It is displayed in row-reverse so that the buttons go after the title in flex, but before the title in block.  */
     div.titleBar {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        align-items:center;
+        align-items: center;
     }
 
 
