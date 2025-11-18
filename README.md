@@ -6,4 +6,3 @@ Using NASA API
 
 Wireframes: https://www.figma.com/design/di1DDwy8teNCfG5RPE7Nnw/MTM6302-APOD-Wireframes?node-id=1034212-1809&t=NahD7iymFa3Iva8A-1
 
-Steps Taken To Create The Prototype:
