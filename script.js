@@ -256,7 +256,7 @@ function displayFavourites() {
 
 // Opens the modal for the passed image URL
 function openModal(url) {
-    // Adds the HD image to the modal, as well as a download button.
+    // Adds the HD image to the modal, as well as a download button. As explained above, the button that previously was supposed to download the image onto the users device is non functional, so instead it just opens the HD image for the user to save easily.
     $modal.innerHTML = `<img src="${url}"><a class="btn btn-primary btn-lg" href="${url}">Download <i class="bi bi-download"></i></a>`;
     // Adds the "show" class to the modal, which makes it visible.
     $modal.classList.add('show');
